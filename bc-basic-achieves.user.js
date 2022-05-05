@@ -91,6 +91,13 @@
 				author: "p1",
 				amount: 1000
 			}),
+			proclaimer: BCAchieve.createAchievement({
+				mod: BCBasicAchievements,
+				name: "The Proclaimer",
+				description: "walk 1000 miles  (1000 miles = 1609344m )",
+				author: "p1",
+				amount: 1609344
+			}),
 		};
 		/*
 /Favorite Room - visit room X times
@@ -123,6 +130,7 @@ Wow, nerd: Click the TOS and Privacy Policy buttons and spend 15 minutes on each
 				achievements.chatterbox.achieve();
 			}
 		});
+		//world.on("moveTo",);
 	});
 	cardboard.addEventListener("login", (world, player) => {
 		achievements.basement.achieve();
@@ -144,7 +152,7 @@ Wow, nerd: Click the TOS and Privacy Policy buttons and spend 15 minutes on each
 	}
 
 	cardboard.addEventListener("joinRoom", (world, room) => {
-		console.log(room);
+		//console.log(room);
 		if (room.playerCrumbs.length >= 100) achievements.followTheCrowd.achieve();
 		if (room.playerCrumbs.filter(p => arraysEqual(p.g, world.player.gear)) >= 10) achievements.flashMob.achieve();
 		if (Object.keys(roomJoinCounts).length == 0) {
@@ -174,6 +182,15 @@ Wow, nerd: Click the TOS and Privacy Policy buttons and spend 15 minutes on each
 		if (roomJoinCounts[room.roomId] == 1) {
 			achievements.joinAllRooms.achieve();
 		}
+
+		//player position tracking
+		let { x: px, y: py } = cardboard.getPlayerCrumb("i", world.player.playerId, world);
+		world.on("moveTo", ({ x, y }) => {
+			let dx = x - px,
+				dy = y - py,
+				d = Math.sqrt(dx * dx + dy * dy);
+			achievements.proclaimer.achieve(d);
+		});
 	});
 
 })();
