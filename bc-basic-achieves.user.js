@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         BCBasicAchievements
 // @namespace    https://bcmc.ga/authors/tumble/
-// @version      0.1.2.3
+// @version      0.1.3.4
 // @author       Tumble
 // @require      https://github.com/SArpnt/joinFunction/raw/master/script.js
 // @require      https://github.com/SArpnt/EventHandler/raw/master/script.js
@@ -33,7 +33,6 @@
 				name: "Chatterbox",
 				description: "Talk 1000 times",
 				amount: 1000,
-				hidden: true,
 				author: "p1"
 			}),
 			collector: BCAchieve.createAchievement({
@@ -42,7 +41,6 @@
 				description: "Have over 400 items",
 				amount: 400,
 				author: "Pr4hVal5",
-				hidden: true
 			}),
 			followTheCrowd: BCAchieve.createAchievement({
 				mod: BCBasicAchievements,
