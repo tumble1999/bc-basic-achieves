@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         BCBasicAchievements
 // @namespace    https://bcmc.ga/authors/tumble/
-// @version      0.1.0.1
+// @version      0.1.1.2
 // @author       Tumble
 // @require      https://github.com/SArpnt/joinFunction/raw/master/script.js
 // @require      https://github.com/SArpnt/EventHandler/raw/master/script.js
@@ -97,6 +97,7 @@ Wow, nerd: Click the TOS and Privacy Policy buttons and spend 15 minutes on each
 
 	cardboard.addEventListener("joinRoom", (world, room) => {
 		console.log(room);
+		if (room.playerCrumbs.length >= 100) achievements.followTheCrowd.achieve();
 		if (Object.keys(roomJoinCounts).length == 0) {
 			achievements.joinAllRooms = BCAchieve.createAchievement({
 				mod: BCBasicAchievements,
