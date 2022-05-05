@@ -11,6 +11,8 @@
 // @require      https://github.com/tumble1999/critterguration/raw/master/critterguration.user.js
 // @require      https://github.com/tumble1999/bc-notify/raw/master/bc-notify.user.js
 // @require      https://github.com/tumble1999/bc-achieve/raw/master/bc-achieve.user.js
+// @grant        GM_getValue
+// @grant        GM_setValue
 // @match        https://boxcritters.com/play/
 // @match        https://boxcritters.com/play/?*
 // @match        https://boxcritters.com/play/#*
